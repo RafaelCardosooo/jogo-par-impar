@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+
+let playerWins = 0;
+let computerWins = 0;
+let rounds = 0;
+
+while (rounds < 3) {
+  let playerChoice = prompt("Choose 'odd' or 'even': ");
+  let playerNumber = parseInt(prompt("Choose a number between 1 and 5: "));
+
+  let computerNumber = Math.floor(Math.random() * 5) + 1;
+  let computerChoice = "";
+  if (playerChoice === "odd") {
+    computerChoice = "even";
+  } else {
+    computerChoice = "odd";
+  }
+
+  let sum = playerNumber + computerNumber;
+
+  let result = "";
+  if (sum % 2 === 0) {
+    result = "even";
+  } else {
+    result = "odd";
+  }
+
+  alert(`Player chose ${playerNumber} (${playerChoice})\nComputer chose ${computerNumber} (${computerChoice})\nThe sum is ${sum}, which is ${result}`);
+
+  if (result === playerChoice) {
+    alert("Player wins!");
+    playerWins++;
+  } else {
+    alert("Computer wins!");
+    computerWins++;
+  }
+  rounds++;
+}
+alert(`Game over! Player ${playerWins} x ${computerWins} Computer`);
+</script>
+</body>
+</html>
